@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<html>
+<header>
+	<title> Nguyễn Ngọc Trí  </title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.7/lib/theme-chalk/index.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<style>
+* {
+			padding: 0;
+			margin: 0;
+  color:#fff308; /* chữ cn */
+		}
+
+		.ayimgui {			
+				position: fixed;
+			width: 410px;
+			height: 280px;
+			top: calc(100% - 180px);
+			left: calc(100% - 180px);
+			z-index: 999;
+			background: rgba(63, 76, 80, 0.5); /*0.2 là % tỉ lệ trong suốt của background*/
+            background-size: 25599px;
+			border-color: #FFFF00;
+			border-radius: 10px;
+			overflow: hidden;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			border: #FFFF00;
+
+		}
+
+      .onlyTitle {
+			height: 25px !important;
+
+		}
+	
+
+	 .ayimgui .aytitle {
+			padding: 0 1px;
+			font-size: 20px;
+			background-color: #FF0000;
+		} 
+
+
+		.ayimgui .aytitle .titleClose {
+			position: absolute;
+			top: 3px;
+			right: 6px;
+			color: #FF0000;
+		}
+
+		.ayimgui .aytitle .titleClose:hover {
+			color: #FF0000;
+		}s
+
+		.ayimgui .aybody {
+			padding: 15px;
+			height: calc(100% - 21px - 15px - 15px);
+			/*减去标题高度，减去上线padding高度*/
+			overflow: auto;
+			font-size: 15px;
+		}
+
+
+		.aytext {
+			width: 100%;
+			margin-bottom: 10px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			color: #FF0000;
+		}
+
+		input[type=checkbox]{
+ visibility: hidden;
+ vertical-align:middle; margin-bottom:1px;
+ cursor: pointer;
+ position: relative;
+ width: 26px;
+ height:30px;
+
+
+}
+input[type=checkbox]::after{
+ position: absolute;
+ top: 0;
+ margin-top:1px;
+ width: 22px; height: 22px;
+ border: 1px solid #FF0000;
+ border-radius: 30px;
+ background-color:#C0C0C0; /* nút */
+ display: inline-block;
+ visibility: visible;
+ text-align: center;
+ content: ' '
+
+}
+
+/* Sửa tất cả các màu thành màu ngẫu nhiên */
+input[type=checkbox]:checked::after {
+    content: "🐼";
+    color:#FFFF00;
+    border-color: #FFFF00;
+    background-color: #FFFF00;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+		
+
+
+input[type=lradio]  {
+    width:20px;
+    height:20px;
+    margin-right:6px;
+    border:none;
+    outline-style:none;
+    -webkit-appearance:none;
+    vertical-align:middle;
+    border:1px solid #C0C0C0;
+    border-radius:50%;
+}
+input[type=lradio]:checked {
+    border:6px solid #2F7DCDF0;
+    background:#C0C0C0;
+}
+
+		.onlySelect {
+			background-color: rgb(182, 0, 0);
+			border: none;
+		}
+
+		.onlySelect .el-select-dropdown__item {
+			color: #000;
+
+		}
+
+		.onlySelect .el-select-dropdown__item.hover,
+		.el-select-dropdown__item:hover:hover {
+			background-color: transparent;
+		}
+
+		.onlySelect .popper__arrow {
+			border-bottom-color: rgb(255, 0, 0) !important;
+		}
+
+		.onlySelect.el-popper[x-placement^=bottom] .popper__arrow::after {
+			border-bottom-color: rgb(8254, 254, 254) !important;
+		}
+
+		.el-select {
+			width: 100%;
+		}
+
+		.el-select .el-input {
+			background-color: rgb(197, 18, 18);
+		}
+
+		.el-select .el-input__suffix {
+			background-color: rgb(160, 196, 243);
+			color: #000;
+			right: 0;
+		}
+
+		.el-select .el-select__caret {
+			color: #000;
+		}
+
+		.el-select .el-input__inner {
+			background-color: transparent;
+			border: none;
+			color: #000;
+		}
+
+		.el-select .el-input .el-select__caret {
+			color: #000;
+		}
+
+		
+		.el-scrollbar .el-scrollbar__bar {
+			opacity: 1 !important;
+		}
+
+		.el-button {
+			font-size: 14px;
+			padding: 5px 10px;
+			line-height: 14px;
+			color: #000;
+			background-color: #B8D1F2;
+		}
+
+		.el-button:hover {
+			opacity: .7;
+			color: #000;
+			background-color: #B8D1F2;
+		}
+
+		.el-button:focus,
+		.el-button:hover {
+			color: #000;
+			background-color: #B8D1F2;
+		}
+
+		.aycollapse {
+			width: 100%;
+			font-size: 14px;
+			background-color: rgb(177, 206, 240);
+			color: #000;
+		}
+
+		.aytab {
+			width: 100%;
+			height: 25px;
+			display: flex;
+			border-bottom: 2px solid rgb(13, 106, 194);
+		}
+
+		.aytab span {
+			padding: 1 2 px;
+			height: 100%px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: rgb(255, 17, 17);
+			color: #bc00eb;
+			font-size: 16px;
+			font-weight: 500;
+			margin-left: 2px;
+			border-radius: 6px 6px 0 0;
+			cursor: pointer;
+		}
+
+
+		.el-input input {
+			background-color: rgb(254, 254, 254);
+			border: none;
+			border-radius: 0px;
+		
+		}
+		
+input[type=range] {
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 21px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #5c5870;
+  border-radius: 100px;
+}
+input[type=range]::-webkit-slider-thumb {
+  border: 1px solid #000000;
+  height: 21px;
+  width: 21px;
+  border-radius: 30px;
+  background: #0051ff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #0d1804;
+}
+input[type=range]::-webkit-slider-thumb::after {
+  content: attr(value) "%";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #C0C0C0;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+
+
+
+    </style>
+</header>
+</script>
+<body>
+ 
+<div id="app">
+		<div :class="!ifshow?'onlyTitle ayimgui':'ayimgui'" ref="menuMain">
+			<div class="aytitle" @touchstart="titleTouchStart" @touchmove="titleTouchMove">
+				<i :class="ifshow?'el-icon-caret-bottom':'el-icon-caret-top'" @click="ifshow = !ifshow" style="color: rgb(255, 255, 255)"></i>
+<span class="title-age" style="margin-left:15px;font-size: 14px; color: rgb(255, 248, 251);">Cheat Free Fire V5 | Nguyễn Ngọc Trí  | SDT : 034 567 1392 </span>
+			
+				
+			</div>
+			<div class="aybody">
+				<div class="aytab">
+					<span @click="changeTab('one')"
+						:style="{background:tabValue==='one'?'#D3D3D3':'#9AFF9A'}">ㅤ Chức Năngㅤ</span>
+					<span @click="changeTab('two')"
+						:style="{background:tabValue==='two'?'#D3D3D3':'#9AFF9A'}">ㅤLiên Hệㅤ</span>
+					<span @click="changeTab('tue')"
+						:style="{background:tabValue==='tue11'?'#D3D3D3':'#9AFF9A'}"></span>
+				</div>
+
+				
+  <script src="./template - Copy_files/jquery.min.js.tải xuống"></script>
+<script>
+h5gg.require(7.9); 
+var h5frida=h5gg.loadPlugin("h5frida", "h5frida-16.0.10.dylib");
+if(!h5frida) throw "Failed to load h5frida plugin";
+
+function ActiveCodePatch(fpath, vaddr, bytes) {
+    if(!h5frida.ActiveCodePatch(fpath, vaddr, bytes)) {
+        var result = h5frida.ApplyCodePatch(fpath, vaddr, bytes);
+        alert(fpath+":0x"+vaddr.toString(16)+"-修改失败!\n" + fpath+":0x"+vaddr.toString(16)+"-PatchFailed!\n" + result);return false;
+    } return true;
+}
+function DeactiveCodePatch(fpath, vaddr, bytes) {
+    return h5frida.DeactiveCodePatch(fpath, vaddr, bytes);
+}
+
+</script>
+<body> 
+<div class="container">
+    <div id="titleBar">
+		<div v-show="tabValue==='one'">
+	
+	
+			<p>                          OPEN MENU HACK </p>
+			
+    <input onclick="fs1(this)" name="radio-group1" type="checkbox" id="checkbox1" />
+    <label for="checkbox1" class="checkbox-label" style="margin-right: 123px;">Cam Cao</label>
+	<input onclick="fs2(this)" name="radio-group2" type="checkbox" id="checkbox2" />
+    <label for="checkbox2" class="checkbox-label"style="margin-right: 30px;">Cam Xa</label>
+    
+        <br>
+
+	<input onclick="fs3(this)" name="radio-group3" type="checkbox" id="checkbox3" />
+    <label for="checkbox3" class="checkbox-label"style="margin-right: 142px;">Speed</label>      
+    
+	<input onclick="fs4(this)" name="radio-group5" type="checkbox" id="checkbox5" />
+    <label for="checkbox4" class="checkbox-label"style="margin-right: 30px;">Chữ: Ⓥ</label>
+        <br>
+ 
+	<input onclick="fs5(this)" name="radio-group6" type="checkbox" id="checkbox6" />
+    <label for="checkbox6" class="checkbox-label"style="margin-right: 120px;">Aim Tâm</label>
+	<input onclick="fs6(this)" name="radio-group7" type="checkbox" id="checkbox7" />       
+	
+   <label for="checkbox7" class="checkbox-label"style="margin-right: 0px;">Show Tâm </label>
+        <br>
+	<input onclick="fs7(this)" name="radio-group9" type="checkbox" id="checkbox9" />
+    <label for="checkbox9" class="checkbox-label"style="margin-right: 110px;">Đạn Thẳng</label>
+	<input onclick="fs8(this)" name="radio-group12" type="checkbox" id="checkbox12" />
+    <label for="checkbox12" class="checkbox-label"style="margin-right: 0px;">Đổi Súng Nhanh</label>
+            <br>
+    <input onclick="fs9(this)" name="radio-group11" type="checkbox" id="checkbox11" />
+    <label for="checkbox11" class="checkbox-label"style="margin-right: 129px;">AimBot</label>
+	<input onclick="fs10(this)" name="radio-group12" type="checkbox" id="checkbox12" />
+    <label for="checkbox12" class="checkbox-label"style="margin-right: 0px;">Nạp Đạn Nhanh</label>
+		<br>	<br>
+		<p>Make Bởi:  Nguyễn Ngọc Trí  </p>
+
+
+</div>
+
+<br>
+  
+    
+	
+       
+  
+	
+			
+		</div>
+	
+					
+
+		</el-collapse-transition>
+	</div>
+					
+
+				
+
+
+<div v-show="tabValue === 'two'">
+    <p>                  THÔNG TIN CÁ NHÂN</p>
+    <br>
+           <p>                                    ADMIN : Nguyễn Ngọc Trí </p>
+           <br>
+           <p>                                    ZALO:  034 567 1392</p>
+           <br>
+           <p>                                    MAKE BỞI: Nguyễn Ngọc Trí </p
+	<br>
+		</div>
+
+	</el-collapse-transition>
+	
+
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+				
+				
+		var app = new Vue({
+			el: "#app",
+			data() {
+				return {
+					ifshow: true,
+					checked: false,
+					radio: '1',
+					activeSelect: '',
+					selectOption: [{
+				
+					}],
+					input: "",
+					showOption: false,
+					tabValue: "one",
+				}
+			},
+			mounted() {
+				this.setRect(360, 320);
+
+				//设置不可拖动
+				setWindowDrag(0, 0, 0, 0);
+    
+				var layout = function()
+				{
+					//window.orientation是设备握持方向, 不是屏幕显示方向
+					if(window.lastorientation==window.orientation) return;
+					window.lastorientation=window.orientation;
+				
+					//window.screen中的宽高不会随着屏幕旋转更新(只会在初始化的时候固定)
+					if(Math.abs(window.orientation)==90) {
+						//横屏模式
+						setWindowRect(0,0,window.screen.height,window.screen.width);
+					} else {
+						//竖屏模式
+						setWindowRect(0,0,window.screen.width,window.screen.height);
+					}
+				}
+	
+				layout(); //设置旋转屏幕时自动调整布局和画布
+				window.addEventListener("orientationchange", layout, false);
+
+				setButtonAction(function () {
+					var menu = document.querySelector("#app");
+					if (menu.style.display == 'none') {
+						menu.style.display = 'block';
+						//显示菜单之后, 设置触控不可穿透悬浮窗口
+						setWindowTouch(true);
+					} else {
+						menu.style.display = 'none';
+						//隐藏菜单之后, 设置触控穿透悬浮窗口
+						setWindowTouch(false);
+					}
+				});
+			},
+
+			methods: {
+    setRect(w, h, x = -1, y = -1) {
+     var boxW = w;
+     var boxH = h;
+
+     var ayMenu = this.$refs.menuMain;
+     ayMenu.style.width = `${boxW}px`;
+     ayMenu.style.height = `${boxH}px`;
+     if (x == -1) ayMenu.style.left = `calc(50% - ${boxW / 2}px)`;
+     if (y == -1) ayMenu.style.top = `calc(50% - ${boxH / 2}px)`;
+
+ ayMenu.style.width= "400px";
+ ayMenu.style.height= "240px";
+
+            
+			
+
+    ayMenu.style.borderBottomLeftRadius = "10px";
+    ayMenu.style.borderBottomRightRadius = "10px";
+    ayMenu.style.borderTopLeftRadius = "10px";
+    ayMenu.style.borderTopRightRadius = "10px";              
+    },
+    titleTouchStart(event) {
+     this.touchStartX = parseInt(event.touches[0].clientX);
+     this.touchStartY = parseInt(event.touches[0].clientY);
+
+     var ayMenu = this.$refs.menuMain;
+     this.menuLastX = ayMenu.offsetLeft;
+     this.menuLastY = ayMenu.offsetTop;
+    },
+    titleTouchMove(event) {
+     event.preventDefault();
+     var distanceX = event.touches[0].clientX - this.touchStartX;
+     var distanceY = event.touches[0].clientY - this.touchStartY;
+
+     var ayMenu = this.$refs.menuMain;
+     ayMenu.style.left = this.menuLastX + distanceX + "px";
+     ayMenu.style.top = this.menuLastY + distanceY + "px";
+    },
+    //切换导航栏
+    changeTab(v) {
+     this.tabValue = v;
+    },
+    closeimgui() {
+     var menu = document.querySelector("#app");
+     menu.style.display = 'none';
+    }
+   }
+  });
+ </script>
+</body>
+
+</html>
